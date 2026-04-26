@@ -107,11 +107,10 @@ if (import.meta.hot) {
 }
 
 if (typeof window !== "undefined" && import.meta.env.DEV) {
-  if (!currentSnapshotMatchesDirectory()) {
-    refreshCadCatalog().catch((error) => {
-      console.warn("Failed to load CAD catalog", error);
-    });
-  }
+  // Always fetch the live catalog once in dev so startup state never stays stale.
+  refreshCadCatalog().catch((error) => {
+    console.warn("Failed to load CAD catalog", error);
+  });
   window.addEventListener("popstate", () => {
     refreshCadCatalog().catch((error) => {
       console.warn("Failed to refresh CAD catalog", error);
