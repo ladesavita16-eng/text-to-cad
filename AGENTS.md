@@ -1,5 +1,26 @@
 # AGENTS.md
 
+### Package managers
+
+Instead of python and setting up venv in python use `uv`
+`uv` dosent needs virtual environment setup and is faster
+
+`uv` installation
+
+```
+powershell -c "irm https://astral.sh/uv/install.ps1 | more"
+```
+
+or
+
+```
+winget install --id=astral-sh.uv  -e
+```
+
+then use `uv --help` for further help or for further information not present in --help refer https://docs.astral.sh/uv/
+
+Instead of node or npm use `bun` and bun --help for help, bun mostly works just like npm and node.
+
 This repository is a harness for script-driven CAD generation with coding agents like Codex and Claude Code.
 
 If you are modifying the viewer app itself, go to `viewer/README.md`.
